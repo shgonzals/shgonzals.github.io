@@ -1,9 +1,37 @@
-.detail{
-    width: 300px;
-    margin-top: 50px;
+
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center 
 }
 
-
 .mat-list-item{
-    margin-bottom: 90px;
+    margin-top: 20px;
+    margin-bottom: 200px;
+}
+
+.mat-list-base.inline-list {
+    display: flex;
+}
+.detail{
+    width: 400px;
+    margin-bottom: 10px;
+}
+.mat-card-title{
+    margin-top: 5px;
+    font-size: 20px;
+}
+
+.mat-divider{
+    position: initial !important;
+    margin-top: -9px !important;
+}
+
+.icon{
+    transform: scale(3);
+}
+
+.button {
+    background-color: darkseagreen;
+    color: whitesmoke;
 }

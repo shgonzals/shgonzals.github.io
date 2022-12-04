@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Quote } from 'src/app/interfaces/quote';
 import { LocalStorageService } from 'src/app/services/local-storage.service';
 
@@ -11,6 +11,7 @@ export class StockDetailListComponent implements OnInit {
 
   private localStorageService : LocalStorageService;
   quotes: Quote[] = [];
+  @Input() quote!: Quote ;
 
 
   constructor(localStorageService: LocalStorageService) {
@@ -22,6 +23,8 @@ export class StockDetailListComponent implements OnInit {
     
   }
 
- 
+  onClickDelete(symbol: string){
+
+  }
 
 }

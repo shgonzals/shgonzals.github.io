@@ -23,6 +23,13 @@
 
     <br>
 
+
+    <app-stock-detail-list *ngFor="let quote of quotes"
+        [quote]="quote"
+    >
+        
+    </app-stock-detail-list>
+<!--
     <div class="center">
         <mat-list>
             <mat-list-item *ngFor="let quote of quotes">
@@ -93,7 +100,7 @@
         </mat-list>
 
     </div>
-
+-->
 </div>
 
 
