@@ -5,12 +5,18 @@
 
 .trackCard{
     width: 700px;
+    border-radius: 25px;
+    margin-top: 20px;
+    
 }
 
 .trackBtn{
     background-color: darkseagreen;
     color: whitesmoke;
     margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .button {
@@ -28,8 +34,18 @@
     justify-content: flex-end;
 }
 
-.content, .trackBtn {
-    margin-left: 50px;
+.content{ 
+    display: flex;
+    align-items: center;
+    justify-content: center 
+}
+
+.title {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: large;
 }
 
 .detail{
@@ -40,7 +56,7 @@
 .center{
     display: flex;
     align-items: center;
-    justify-content: center 
+    justify-content: center;
 }
 
 .mat-list-item{

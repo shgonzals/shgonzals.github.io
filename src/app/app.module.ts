@@ -11,7 +11,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
-import { StockDetailListComponent } from './components/stock-detail-list/stock-detail-list.component';
+import { StockDetailComponent } from './components/stock-detail/stock-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
@@ -23,7 +23,7 @@ import {MatDividerModule} from '@angular/material/divider';
     AppComponent,
     StockComponent,
     SentimentComponent,
-    StockDetailListComponent
+    StockDetailComponent
   ],
   imports: [
     BrowserModule,

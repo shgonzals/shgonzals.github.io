@@ -77,6 +77,11 @@ export class StockComponent implements OnInit, OnDestroy  {
     this.reloadData();
   }
 
+  onRemove(symbol: string){
+    this.localStorageService.removeQuote(symbol);
+    this.reloadData();
+  }
+
   reloadData(){
     this.quotes = this.localStorageService.getAll();
   }
