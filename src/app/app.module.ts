@@ -4,15 +4,40 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StockComponent } from './components/stock/stock.component';
+import { SentimentComponent } from './components/sentiment/sentiment.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatInputModule} from '@angular/material/input';
+import { StockDetailListComponent } from './components/stock-detail-list/stock-detail-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { MatListModule } from '@angular/material/list';
+import {MatDividerModule} from '@angular/material/divider';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StockComponent,
+    SentimentComponent,
+    StockDetailListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatExpansionModule,
+    MatButtonModule,
+    MatIconModule,
+    MatInputModule,
+    HttpClientModule,
+    FormsModule,
+    MatListModule,
+    MatDividerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
