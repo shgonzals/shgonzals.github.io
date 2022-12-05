@@ -1,35 +1,46 @@
 <div class="background">
+  <div class="center">
+    <mat-card class="trackCard">
+      <div>
+        <div class="title">
+          Enter the symbol of a stock to track (i.e. AAPL, TSLA, GOOGL)
+        </div>
+        <div style="flex-grow: 1"></div>
+      </div>
+      <mat-card-content class="content">
+        <mat-form-field class="example-full-width">
+          <mat-label>Symbol</mat-label>
 
-    <div class="center">
-        <mat-card class="trackCard">
-            <div>
-                <div class="title">
-                Enter the symbol of a stock to track (i.e. AAPL, TSLA, GOOGL)
-                </div>
-                <div style="flex-grow: 1"></div>
-            </div>
-            <mat-card-content class="content">
-                <mat-form-field class="example-full-width">
-                    <mat-label>Symbol</mat-label>
-        
-                    <input matInput matInput id="stockInput"
-                    [(ngModel)]="stockInput" placeholder="Ex. AAPL" value="">
-                </mat-form-field>
-                <button mat-button id="trackBtn" class="trackBtn" (click)="onClick(stockInput)">Track stock</button>
-            </mat-card-content>
-        </mat-card>
+          <input
+            matInput
+            matInput
+            id="stockInput"
+            [(ngModel)]="stockInput"
+            placeholder="Ex. AAPL"
+            value=""
+          />
+        </mat-form-field>
+        <button
+          mat-button
+          id="trackBtn"
+          class="trackBtn"
+          (click)="onClick(stockInput)"
+        >
+          Track stock
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
 
-    </div>
+  <br />
 
-    <br>
-
-
-    <app-stock-detail
-    *ngFor="let quote of quotes" 
+  <app-stock-detail
+    *ngFor="let quote of quotes"
     [quote]="quote"
-    (remove)="onRemove($event)">
-    </app-stock-detail>
-<!--
+    (remove)="onRemove($event)"
+  >
+  </app-stock-detail>
+  <!--
     <div class="center">
         <mat-list>
             <mat-list-item *ngFor="let quote of quotes">
@@ -100,14 +111,15 @@
         </mat-list>
 
     </div>
--->
-</div>
-
+--></div>
 
 <!-- <app-stock-detail-list></app-stock-detail-list> -->
 
+<app-spinner></app-spinner>
+<!-- 
 <div id="overlay">
     <span id="nav" *ngIf="saveInProgress">
         <div class="spinner" style="display: block; color: white; position: fixed; left: 49.7%; top: 50.5%;"></div>
     </span>
 </div>
+-->

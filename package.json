@@ -10,6 +10,9 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-devkit/architect": ">= 0.900 < 0.1600",
+    "@angular-devkit/core": "^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0",
+    "@angular-devkit/schematics": "^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0 || ^14.0.0 || ^15.0.0",
     "@angular/animations": "~13.0.0",
     "@angular/cdk": "^13.3.9",
     "@angular/common": "~13.0.0",
@@ -21,8 +24,10 @@
     "@angular/platform-browser-dynamic": "~13.0.0",
     "@angular/router": "~13.0.0",
     "angular-cli-ghpages": "^1.0.5",
+    "chokidar": "^3.5.2",
     "gh-pages": "^4.0.0",
     "rxjs": "~7.4.0",
+    "rxjs/operators": "*",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
