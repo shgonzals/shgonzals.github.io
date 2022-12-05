@@ -35,6 +35,7 @@ export class StockComponent implements OnInit, OnDestroy {
   }
 
   onClick(stockInput: string): any {
+    debugger;
     if (this.localStorageService.keyExists(stockInput)) {
       //Si existe la key, mostramos mensaje de error
       console.log('La key: ' + stockInput + ' ya se ha consultado');
