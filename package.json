@@ -28,6 +28,7 @@
     "gh-pages": "^4.0.0",
     "rxjs": "~7.4.0",
     "rxjs/operators": "*",
+    "rxjs/operatos": "*",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
