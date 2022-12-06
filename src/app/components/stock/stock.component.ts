@@ -71,6 +71,7 @@ export class StockComponent implements OnInit, OnDestroy {
                       this.stockInput = '';
                     }
                   }
+                  debugger;
                   if (this.symbolData == null) {
                     this.openSnackBar(
                       'Not found any data for the input symbol ' + stockInput
@@ -88,11 +89,7 @@ export class StockComponent implements OnInit, OnDestroy {
                   console.log('No se han encontrado datos para ' + stockInput);
                   this.loading(false);
                 }
-                //No se ha encontrado ningun simbolo
-                this.openSnackBar('Not found any data for the input symbol '+ stockInput);
-                console.log('No se han encontrado datos para ' + stockInput);
-                this.loading(false); 
-              }
+              },
             });
         },
       });
