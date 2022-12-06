@@ -39,7 +39,9 @@ export class StockComponent implements OnInit, OnDestroy {
   onClick(stockInput: string): any {
     if (this.localStorageService.keyExists(stockInput)) {
       //Si existe la key, mostramos mensaje de error
-      this.openSnackBar('The input symbol ' + stockInput + ' is already on the list');
+      this.openSnackBar(
+        'The input symbol ' + stockInput + ' is already on the list'
+      );
       console.log('La key: ' + stockInput + ' ya se ha consultado');
     } else {
       this.loading(true);
@@ -51,7 +53,7 @@ export class StockComponent implements OnInit, OnDestroy {
               next: (symbols) => {
                 this.stockInput;
                 var list = symbols.result;
-                if(list.length > 0){
+                if (list.length > 0) {
                   for (let index = 0; index < list.length; index++) {
                     if (list[index].displaySymbol == stockInput) {
                       this.symbolData = list[index];
@@ -59,21 +61,24 @@ export class StockComponent implements OnInit, OnDestroy {
                       quote.displaySymbol = list[index].description;
                       quote.symbol = list[index].symbol;
                       quote.type = list[index].type;
-  
+
                       this.localStorageService.addQuote(
                         stockInput,
                         JSON.stringify(quote)
                       );
                       this.reloadData();
-                      this.loading(false); 
+                      this.loading(false);
                       this.stockInput = '';
                     }
                   }
+                } else {
+                  //No se ha encontrado ningun simbolo
+                  this.openSnackBar(
+                    'Not found any data for the input symbol ' + stockInput
+                  );
+                  console.log('No se han encontrado datos para ' + stockInput);
+                  this.loading(false);
                 }
-                //No se ha encontrado ningun simbolo
-                this.openSnackBar('Not found any data for the input symbol '+ stockInput);
-                console.log('No se han encontrado datos para ' + stockInput);
-                this.loading(false); 
               },
             });
         },
@@ -97,15 +102,14 @@ export class StockComponent implements OnInit, OnDestroy {
 
   loading(isLoading: boolean) {
     this.saveInProgress = isLoading;
-    if(isLoading){
-      this.document.getElementById("overlay")!.style.display = "block";
-    }else{
-      this.document.getElementById("overlay")!.style.display = "none";
+    if (isLoading) {
+      this.document.getElementById('overlay')!.style.display = 'block';
+    } else {
+      this.document.getElementById('overlay')!.style.display = 'none';
     }
   }
 
-  openSnackBar(msg: string){
+  openSnackBar(msg: string) {
     this.snackBar.open(msg, 'OK');
   }
-
 }
