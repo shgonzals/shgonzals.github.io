@@ -1,41 +1,49 @@
-
-<br>
-<button mat-fab class="button"
-[routerLink]="['']" 
-[id]="'backBtn'+quote.symbol"><mat-icon>arrow_back</mat-icon></button>
-<br>
+<br />
+<button
+  mat-fab
+  class="button"
+  [routerLink]="['']"
+  [id]="'backBtn' + quote.symbol"
+>
+  <mat-icon>arrow_back</mat-icon>
+</button>
+<br />
 <div class="center">
+  <mat-card class="detail">
+    <div style="display:flex">
+      <div>
+        <mat-spinner
+          style="margin-left: 350px; margin-top: 80px;"
+          *ngIf="!title"
+        ></mat-spinner>
+        <mat-card-title class="title">{{ title }}</mat-card-title>
+      </div>
+      <div style="flex-grow: 1"></div>
+    </div>
+    <mat-divider *ngIf="title"></mat-divider>
+    <mat-card-content class="content">
+      <mat-list class="inline-list">
+        <mat-list-item *ngFor="let sentiment of sentimentList">
+          <mat-card class="sentiment">
+            <b style="margin-left: 10px;">{{
+              sentiment.monthName | uppercase
+            }}</b>
+            <br />
+            <span>
+              Change: {{ sentiment.change | number }}
 
-    <mat-card class="detail">
-        <div style="display:flex" >
-            <div>
-                <mat-spinner style="margin-left: 350px; margin-top: 80px;" *ngIf="!title"></mat-spinner>
-                <mat-card-title class="title">{{title}}</mat-card-title>
-            </div>
-            <div style="flex-grow: 1"></div>
-        </div>
-        <mat-divider *ngIf="title"></mat-divider>
-        <mat-card-content class="content">
-            <mat-list class="inline-list">
-                <mat-list-item *ngFor="let sentiment of sentimentList">
-                    <mat-card class="sentiment">
-                        <b style="margin-left: 10px;">{{sentiment.monthName | uppercase}}</b>
-                        <br>
-                        <span>
-                            Change: {{sentiment.change | number }}
-
-                            <mat-icon class="iconArrow" [ngStyle]="{'color': sentiment.change > 0 ? 'green' : 'red'}">
-                                {{sentiment.change > 0 ? 'arrow_upward' : 'arrow_downward'}}  
-                            </mat-icon>
-                        </span>
-                        <br>
-                        MSPR: {{sentiment.mspr | number: '2.1-2'}}
-
-                    </mat-card>
-                </mat-list-item>
-            </mat-list>
-        </mat-card-content>
-       
-    </mat-card>
-    
+              <mat-icon
+                class="iconArrow"
+                [ngStyle]="{ color: sentiment.change > 0 ? 'green' : 'red' }"
+              >
+                {{ sentiment.change > 0 ? 'arrow_upward' : 'arrow_downward' }}
+              </mat-icon>
+            </span>
+            <br />
+            MSPR: {{ sentiment.mspr | number: '2.1-2' }}
+          </mat-card>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
 </div>

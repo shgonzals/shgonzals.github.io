@@ -44,6 +44,7 @@ export class SentimentComponent implements OnInit {
   ngOnInit(): void {
     this.isLoading = true;
     this.symbol = this.route.snapshot.paramMap.get('symbol');
+    debugger;
     if (this.symbol != null) {
       this.stockService.getSymbolDetail(this.symbol).subscribe((quote) => {
         this.symbolData = quote.result.find(
