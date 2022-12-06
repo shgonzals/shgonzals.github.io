@@ -74,7 +74,7 @@ export class StockComponent implements OnInit, OnDestroy {
                 this.openSnackBar('Not found any data for the input symbol '+ stockInput);
                 console.log('No se han encontrado datos para ' + stockInput);
                 this.loading(false); 
-              },
+              }
             });
         },
       });
