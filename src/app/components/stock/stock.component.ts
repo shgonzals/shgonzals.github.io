@@ -88,15 +88,11 @@ export class StockComponent implements OnInit, OnDestroy {
                   console.log('No se han encontrado datos para ' + stockInput);
                   this.loading(false);
                 }
-<<<<<<< HEAD
                 //No se ha encontrado ningun simbolo
                 this.openSnackBar('Not found any data for the input symbol '+ stockInput);
                 console.log('No se han encontrado datos para ' + stockInput);
                 this.loading(false); 
               }
-=======
-              },
->>>>>>> 816ed43040ec0cebd83ff4c6458e4188b87f1d03
             });
         },
       });
