@@ -1,16 +1,38 @@
 
 <br>
-<div>
+<button mat-fab class="button"
+[routerLink]="['']" 
+[id]="'backBtn'+quote.symbol"><mat-icon>arrow_back</mat-icon></button>
+<br>
+<div class="center">
 
-    <mat-card >
+    <mat-card class="detail">
         <div style="display:flex" >
-
+            <div>
+                <mat-spinner style="margin-left: 350px; margin-top: 80px;" *ngIf="!title"></mat-spinner>
+                <mat-card-title>{{title}}</mat-card-title>
+            </div>
             <div style="flex-grow: 1"></div>
         </div>
         <mat-card-content class="content">
-            
-        </mat-card-content>
-    </mat-card>
-    <button mat-button >Back to list of stocks</button>
+            <mat-list class="inline-list">
+                <mat-list-item *ngFor="let sentiment of sentimentList">
+                    <mat-card class="sentiment">
+                        <b>{{sentiment.monthName}}</b>
+                        <span>
+                            <mat-icon style="margin-left: 90px;" [ngStyle]="{'color': sentiment.change > 0 ? 'green' : 'red'}" class="icon">
+                                {{sentiment.change > 0 ? 'arrow_upward' : 'arrow_downward'}}  
+                            </mat-icon>
+                        </span>
+                        Change: {{sentiment.change | number:'1.0-1'}}
+                        <br>
+                        MSPR: {{sentiment.mspr | number: '2.1-2'}}
 
+                    </mat-card>
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+       
+    </mat-card>
+    
 </div>

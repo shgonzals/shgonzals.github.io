@@ -35,7 +35,8 @@ export class StockComponent implements OnInit, OnDestroy {
   }
 
   onClick(stockInput: string): any {
-    debugger;
+    stockInput = stockInput.toLocaleUpperCase();
+
     if (this.localStorageService.keyExists(stockInput)) {
       //Si existe la key, mostramos mensaje de error
       console.log('La key: ' + stockInput + ' ya se ha consultado');
@@ -62,7 +63,7 @@ export class StockComponent implements OnInit, OnDestroy {
                       JSON.stringify(quote)
                     );
                     this.reloadData();
-                    this.loading(false);
+                    this.loading(false);  
                   }
                 }
               },
@@ -88,10 +89,10 @@ export class StockComponent implements OnInit, OnDestroy {
 
   loading(isLoading: boolean) {
     this.saveInProgress = isLoading;
-    if (isLoading) {
-      this.document.getElementById('overlay')!.style.display = 'block';
-    } else {
-      this.document.getElementById('overlay')!.style.display = 'none';
+    if(isLoading){
+      this.document.getElementById("overlay")!.style.display = "block";
+    }else{
+      this.document.getElementById("overlay")!.style.display = "none";
     }
   }
 }

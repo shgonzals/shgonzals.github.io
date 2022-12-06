@@ -13,7 +13,8 @@
 
           <input
             matInput
-            matInput
+            minlength="1"
+            maxlength="5"
             id="stockInput"
             [(ngModel)]="stockInput"
             placeholder="Ex. AAPL"
@@ -22,6 +23,7 @@
         </mat-form-field>
         <button
           mat-button
+          [disabled]="!stockInput"
           id="trackBtn"
           class="trackBtn"
           (click)="onClick(stockInput)"
@@ -40,86 +42,11 @@
     (remove)="onRemove($event)"
   >
   </app-stock-detail>
-  <!--
-    <div class="center">
-        <mat-list>
-            <mat-list-item *ngFor="let quote of quotes">
-        
-                <mat-card class="detail">
-                    <div style="display:flex;">
-                        <div>
-                            <mat-card-title>{{quote.description}} - ({{quote.symbol}})</mat-card-title>
-                        </div>
-                        <div style="flex-grow: 1"></div>
-                        <button mat-icon-button [id]="'remove'+quote.symbol"
-                        (click)="onClickDelete(quote.symbol)"><mat-icon class="closeButton">close</mat-icon></button>
-                    </div>
-                    <mat-divider></mat-divider>
-                    <mat-card-content class="content">
-                        <br>
-                        <div>
-                            <div style="font-weight: bold;">
-                                <span>
-                                    Change today:
-                                </span>
-                                <span style="margin-left: 55px;">
-                                    Opening price:
-                                </span>
-                            </div>
+ 
+</div>
 
-                            <div>
-                                <span>
-                                    {{quote.d / 100 | percent : '1.2-2'}}
-                                </span>
-                                <span style="margin-left: 105px;">
-                                    {{quote.o | currency : 'USD'}}
-                                </span>
-                            </div>
-
-                            <div style="font-weight: bold;">
-                                <span >
-                                    Current price:
-                                </span>
-                                <span style="margin-left: 60px;">
-                                    High price:
-                                </span>
-
-                                <span>
-                                    <mat-icon style="margin-left: 60px;" [ngStyle]="{'color': quote.d > 0 ? 'green' : 'red'}" class="icon">
-                                       {{quote.d > 0 ? 'trending_up' : 'trending_down'}}  
-                                    </mat-icon>
-                                </span>
-                            </div>
-
-                            <div>
-                                <span>
-                                    {{quote.c | currency : 'USD'}}
-                                </span>
-                                <span style="margin-left: 94px;">
-                                    {{quote.h | currency : 'USD'}}
-                                </span>
-                            </div>
-                        </div>
-
-                        <br>
-
-                        <button mat-button class="button" [id]="'sentiment'+quote.symbol" 
-                        [routerLink]="['/sentiment', quote.symbol]">Go to social sentiment details ></button>
-                    </mat-card-content>
-                </mat-card>
-            </mat-list-item>
-        </mat-list>
-
-    </div>
---></div>
-
-<!-- <app-stock-detail-list></app-stock-detail-list> -->
-
-<app-spinner></app-spinner>
-<!-- 
 <div id="overlay">
     <span id="nav" *ngIf="saveInProgress">
         <div class="spinner" style="display: block; color: white; position: fixed; left: 49.7%; top: 50.5%;"></div>
     </span>
 </div>
--->

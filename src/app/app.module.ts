@@ -12,20 +12,19 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { StockDetailComponent } from './components/stock-detail/stock-detail.component';
-import { SpinnerComponent } from './components/spinner/spinner.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
-import { LoadingInterceptor } from './interceptor/loading.interceptor';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     StockComponent,
     SentimentComponent,
-    StockDetailComponent,
-    SpinnerComponent,
+    StockDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -40,14 +39,9 @@ import { LoadingInterceptor } from './interceptor/loading.interceptor';
     FormsModule,
     MatListModule,
     MatDividerModule,
+    MatProgressSpinnerModule
   ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: LoadingInterceptor,
-      multi: true,
-    },
-  ],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

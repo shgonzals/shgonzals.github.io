@@ -1,0 +1,27 @@
+
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.detail{
+    width: 800px;
+    height: 250px;
+    margin-bottom: 10px;
+}
+
+.mat-list-base.inline-list {
+    display: flex;
+}
+
+.content{
+    margin-top: 80px;
+}
+
+.button {
+    color: black;
+    background-color: whitesmoke;
+    margin-left: 50px;
+    margin-top: 20px;
+}
