@@ -5,6 +5,7 @@ import { SymbolData } from '../../interfaces/symbol';
 import { LocalStorageService } from '../../services/local-storage.service';
 import { StockService } from '../../services/stock.service';
 import { DOCUMENT } from '@angular/common';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-stock',
@@ -21,7 +22,8 @@ export class StockComponent implements OnInit, OnDestroy {
   constructor(
     public stockService: StockService,
     public localStorageService: LocalStorageService,
-    @Inject(DOCUMENT) document: Document
+    @Inject(DOCUMENT) document: Document,
+    private snackBar: MatSnackBar
   ) {
     this.document = document;
   }
@@ -37,6 +39,7 @@ export class StockComponent implements OnInit, OnDestroy {
   onClick(stockInput: string): any {
     if (this.localStorageService.keyExists(stockInput)) {
       //Si existe la key, mostramos mensaje de error
+      this.openSnackBar('The input symbol ' + stockInput + ' is already on the list');
       console.log('La key: ' + stockInput + ' ya se ha consultado');
     } else {
       this.loading(true);
@@ -68,6 +71,8 @@ export class StockComponent implements OnInit, OnDestroy {
                   }
                 }
                 //No se ha encontrado ningun simbolo
+                this.openSnackBar('Not found any data for the input symbol '+ stockInput);
+                console.log('No se han encontrado datos para ' + stockInput);
                 this.loading(false); 
               },
             });
@@ -97,6 +102,10 @@ export class StockComponent implements OnInit, OnDestroy {
     }else{
       this.document.getElementById("overlay")!.style.display = "none";
     }
+  }
+
+  openSnackBar(msg: string){
+    this.snackBar.open(msg, 'OK');
   }
 
 }
