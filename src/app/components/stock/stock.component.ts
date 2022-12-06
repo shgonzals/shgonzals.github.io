@@ -35,8 +35,6 @@ export class StockComponent implements OnInit, OnDestroy {
   }
 
   onClick(stockInput: string): any {
-    stockInput = stockInput.toLocaleUpperCase();
-
     if (this.localStorageService.keyExists(stockInput)) {
       //Si existe la key, mostramos mensaje de error
       console.log('La key: ' + stockInput + ' ya se ha consultado');
@@ -50,22 +48,27 @@ export class StockComponent implements OnInit, OnDestroy {
               next: (symbols) => {
                 this.stockInput;
                 var list = symbols.result;
-                for (let index = 0; index < list.length; index++) {
-                  if (list[index].displaySymbol == stockInput) {
-                    this.symbolData = list[index];
-                    quote.description = list[index].description;
-                    quote.displaySymbol = list[index].description;
-                    quote.symbol = list[index].symbol;
-                    quote.type = list[index].type;
-
-                    this.localStorageService.addQuote(
-                      stockInput,
-                      JSON.stringify(quote)
-                    );
-                    this.reloadData();
-                    this.loading(false);  
+                if(list.length > 0){
+                  for (let index = 0; index < list.length; index++) {
+                    if (list[index].displaySymbol == stockInput) {
+                      this.symbolData = list[index];
+                      quote.description = list[index].description;
+                      quote.displaySymbol = list[index].description;
+                      quote.symbol = list[index].symbol;
+                      quote.type = list[index].type;
+  
+                      this.localStorageService.addQuote(
+                        stockInput,
+                        JSON.stringify(quote)
+                      );
+                      this.reloadData();
+                      this.loading(false); 
+                      this.stockInput = '';
+                    }
                   }
                 }
+                //No se ha encontrado ningun simbolo
+                this.loading(false); 
               },
             });
         },
@@ -95,4 +98,5 @@ export class StockComponent implements OnInit, OnDestroy {
       this.document.getElementById("overlay")!.style.display = "none";
     }
   }
+
 }

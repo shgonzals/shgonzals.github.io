@@ -13,11 +13,11 @@
 
           <input
             matInput
-            minlength="1"
             maxlength="5"
             id="stockInput"
             [(ngModel)]="stockInput"
             placeholder="Ex. AAPL"
+            oninput="this.value = this.value.toUpperCase()" 
             value=""
           />
         </mat-form-field>

@@ -15,10 +15,11 @@
 }
 .detail{
     width: 400px;
+    padding: 18px;
     margin-bottom: 10px;
+    border-radius: 15px;
 }
 .mat-card-title{
-    margin-top: 5px;
     font-size: 20px;
 }
 
@@ -38,4 +39,5 @@
 
 .closeButton {
     vertical-align: baseline !important;
+    
 }

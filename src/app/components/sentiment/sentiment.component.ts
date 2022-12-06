@@ -34,7 +34,7 @@ export class SentimentComponent implements OnInit {
   symbolData : SymbolData | undefined;
   sentimentList : Sentiment[] = [];
   currentDate : Date = new Date();
-  now : string = moment(this.currentDate).format('YYYY-MM-DD');
+  date_format : string= 'YYYY-MM-DD';
 
   constructor(public stockService: StockService, private route: ActivatedRoute){
       this.isLoading = true;
@@ -56,9 +56,8 @@ export class SentimentComponent implements OnInit {
           this.quote.type = this.symbolData!.type;
           this.title = this.quote.description + ' - (' + this.quote.symbol + ')';
            
-          this.stockService.getSentiment(this.quote.symbol, this.getFromDate(), moment().format('YYYY-MM-DD')).subscribe(
+          this.stockService.getSentiment(this.quote.symbol, this.getFromDate(), moment().format(this.date_format)).subscribe(
             sentiments => {
-              debugger;
               let index = 0;
               let maxIndex = 3;
               if(sentiments.data.length > 3){
@@ -69,13 +68,7 @@ export class SentimentComponent implements OnInit {
                 const sentiment = sentiments.data[index];
                 sentiment.monthName = moment(sentiment.month, 'M').format('MMMM');
                 this.sentimentList.push(sentiment);
-              }
-/*
-              sentiments.data.forEach(sentiment => {
-                sentiment.monthName = moment(sentiment.month, 'M').format('MMMM');
-                this.sentimentList.push(sentiment);
-              });    
-              */          
+              }         
             }
           );
         }
@@ -84,7 +77,7 @@ export class SentimentComponent implements OnInit {
   }
   
   getFromDate () : string{
-      return moment().subtract(4, 'months').format('YYYY-MM-DD');
+      return moment().subtract(4, 'months').format(this.date_format);
   }
 
 }
